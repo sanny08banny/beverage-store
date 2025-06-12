@@ -6,6 +6,7 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import SplineScene from "./components/SplineScene";
 import MobileMenu from "./components/MobileMenu";
 import { motion } from "framer-motion";
+import PurposeVisionSection from "./components/PurposeVisionSection";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,21 +47,23 @@ export default function Home() {
       {/* Mobile Menu */}
       {menuOpen && <MobileMenu onClose={() => setMenuOpen(false)} />}
 
-      {/* Main Content */}
-      <main className="w-full flex flex-col gap-8 row-start-2 items-center sm:items-start max-w-7xl mx-auto text-center sm:text-left">
-        <SplineScene />
+      <main className="w-full flex flex-col gap-8 row-start-2 items-center sm:items-start max-w-7xl mx-auto text-center sm:text-left relative">
+  <SplineScene />
 
-        <motion.div
-          whileHover={{ y: -5, scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          className="text-lg sm:text-xl font-semibold text-blue-600 cursor-pointer flex items-center gap-2"
-        >
-          <span>See Our Products</span>
-          <motion.span animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1 }}>
-            ↓
-          </motion.span>
-        </motion.div>
-      </main>
+  {/* Overlay CTA */}
+  <motion.div
+    whileHover={{ y: -5, scale: 1.05 }}
+    transition={{ type: "spring", stiffness: 300 }}
+    className="absolute top-[90%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg sm:text-xl font-semibold text-blue-600 cursor-pointer flex flex-col items-center gap-2"
+  >
+    <span>See Our Products</span>
+    <motion.span animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1 }}>
+      ↓
+    </motion.span>
+  </motion.div>
+  <PurposeVisionSection />
+</main>
+
     </div>
   );
 }
