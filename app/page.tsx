@@ -54,7 +54,7 @@ export default function Home() {
   <motion.div
     whileHover={{ y: -5, scale: 1.05 }}
     transition={{ type: "spring", stiffness: 300 }}
-    className="absolute top-[90%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg sm:text-xl font-semibold text-blue-600 cursor-pointer flex flex-col items-center gap-2"
+    className="absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg sm:text-xl font-semibold text-blue-600 cursor-pointer flex flex-col items-center gap-2"
   >
     <span>See Our Products</span>
     <motion.span animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1 }}>

@@ -13,7 +13,7 @@ export default function PurposeVisionSection() {
         className="bg-[#1c1c1c] rounded-xl hover:rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
       >
         <img
-          src="/path/to/image1.jpg"
+          src="/jaba_juice_logo_1.jpg"
           alt="Who We Are"
           className="w-full h-64 object-cover"
         />
@@ -39,7 +39,7 @@ export default function PurposeVisionSection() {
         className="bg-[#1c1c1c] rounded-xl hover:rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
       >
         <img
-          src="/path/to/image2.jpg"
+          src="/jaba_juice_post_adventure.jpg"
           alt="Letter to Employees"
           className="w-full h-64 object-cover"
         />
