@@ -1,9 +1,13 @@
 'use client';
 import React from 'react';
 
-const letters = ['F', 'L', 'A', 'V', 'O', 'U', 'R', 'S'];
+type FlavoursLogoProps = {
+  text?: string;
+};
 
-export default function FlavoursLogo() {
+export default function FlavoursLogo({ text = 'FLAVOURS' }: FlavoursLogoProps) {
+  const letters = text.toUpperCase().split('');
+
   return (
     <>
       <p className="flex flex-wrap justify-center items-center text-white font-bold font-sans">
@@ -56,3 +60,4 @@ export default function FlavoursLogo() {
     </>
   );
 }
+

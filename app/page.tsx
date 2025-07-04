@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Bars3Icon } from "@heroicons/react/24/outline";
@@ -8,19 +8,19 @@ import MobileMenu from "./components/MobileMenu";
 import { motion } from "framer-motion";
 import PurposeVisionSection from "./components/PurposeVisionSection";
 import FlavoursLogo from "./components/FlavoursLogo";
-import Flavours from "./components/Flavours";
 import MetaLine from "./components/MetaLine";
 import WordsEffect from "./components/texts/WordsEffect";
-import LoadingText from "./components/texts/LoadingText";
+import LoadingText from "./components/texts/ShimmerText";
+import FlavoursSection from "./components/FlavoursSection";
+import FlavourCard from "./components/texts/FlavourCard";
+import RegularFlavoursSection from "./components/RegularFlavoursSection";
+import HeroSection from "./components/HeroSection";
+import AlphaSection from "./components/AlphaSection";
 
 export default function Home() {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const regularFlavours = [
-    { letters: ['P', 'A', 'S', 'S', 'I', 'O', 'N'], color: '#fb923c' },
-    { letters: ['L', 'E', 'M', 'O', 'N', 'A', 'D', 'E'], color: '#facc15' },
-    { letters: ['D', 'A', 'W', 'A'], color: '#34d399' },
-  ];
 
 
   return (
@@ -60,22 +60,16 @@ export default function Home() {
       {menuOpen && <MobileMenu onClose={() => setMenuOpen(false)} />}
 
       <main className="w-full flex flex-col gap-8 row-start-2 items-center sm:items-start max-w-7xl mx-auto text-center sm:text-left relative">
-        <SplineScene />
+      <HeroSection onCTAClick={() => sectionRef.current?.scrollIntoView({ behavior: "smooth" })} />
 
-        {/* Overlay CTA */}
-        <motion.div
-          whileHover={{ y: -5, scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          className="absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg sm:text-xl font-semibold text-blue-600 cursor-pointer flex flex-col items-center gap-2"
-        >
-          <span>See Our Products</span>
-          <motion.span animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1 }}>
-            ↓
-          </motion.span>
-        </motion.div>
-        <PurposeVisionSection />
-        <FlavoursLogo />
-        <Flavours />
+        <div ref={sectionRef} className="w-full flex flex-col gap-8">
+          <PurposeVisionSection />
+          <AlphaSection/>
+          <FlavoursLogo />
+          <FlavoursSection />
+          <RegularFlavoursSection />
+        </div>
+
       </main>
 
     </div>

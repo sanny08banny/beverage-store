@@ -1,0 +1,51 @@
+{
+    "info": {
+      "name": "Send Driver Ride Notification",
+      "_postman_id": "1a2b3c4d-5e6f-7890-abcd-ef0123456789",
+      "description": "POST request with multipart/form-data to send driver ride notification",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "senddriverridenotification",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "formdata",
+            "formdata": [
+              { "key": "lat", "value": "51.562962", "type": "text" },
+              { "key": "long", "value": "0.005603", "type": "text" },
+              { "key": "vehicleTypeId", "value": "65cf3ba56c8371f2e8f02178", "type": "text" },
+              { "key": "startDestination", "value": "7, null, England, United Kingdom", "type": "text" },
+              { "key": "selectedPaymentMethodId", "value": "0", "type": "text" },
+              { "key": "paymentMethodType", "value": "cash_payment", "type": "text" },
+              { "key": "currency", "value": "GBP", "type": "text" },
+              { "key": "Date", "value": "2025-07-04", "type": "text" },
+              { "key": "Time", "value": "04:02", "type": "text" },
+              { "key": "customer_notes", "value": "", "type": "text" },
+              { "key": "userId", "value": "65e4c7ac66bd6e00674e0d3d", "type": "text" },
+              { "key": "EndDestination", "value": "E6 1AA, England, United Kingdom", "type": "text" },
+              { "key": "Distance_travelled", "value": "3.7050771444837145", "type": "text" },
+              { "key": "amount", "value": "5.0", "type": "text" },
+              { "key": "loyalty_points", "value": "0", "type": "text" },
+  
+              { "key": "start_location[type]", "value": "Point", "type": "text" },
+              { "key": "start_location[coordinates]", "value": "[0.005603, 51.562962]", "type": "text" },
+  
+              { "key": "end_location[type]", "value": "Point", "type": "text" },
+              { "key": "end_location[coordinates]", "value": "[0.0403215, 51.5375814]", "type": "text" }
+            ]
+          },
+          "url": {
+            "raw": "https://monochrome-backend.onrender.com/api/v1/users/senddriverridenotification",
+            "protocol": "https",
+            "host": ["monochrome-backend", "onrender", "com"],
+            "path": ["api", "v1", "users", "senddriverridenotification"]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  

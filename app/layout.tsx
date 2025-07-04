@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 const poppins = Poppins({
-  weight: ["400", "600"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-poppins",
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'], // Add weights as needed
+  variable: '--font-poppins',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
         {children}
       </body>
