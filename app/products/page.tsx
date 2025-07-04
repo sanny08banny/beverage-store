@@ -22,7 +22,7 @@ const initialProducts: Product[] = [
     id: 1,
     name: 'Citrus Burst',
     description: 'A tangy, revitalizing citrus soda with a splash of lime.',
-    image: '/citrus-burst.jpg',
+    image: '/jaba_juice_hibiscus-removebg-preview.png',
     price: 3.99,
     isFavorite: false,
   },
