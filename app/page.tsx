@@ -42,6 +42,7 @@ export default function Home() {
           <FlavoursLogo />
           <FlavoursSection />
           <RegularFlavoursSection />
+          <a href="/create_product_form">Admin</a>
         </div>
       </main>
     </div>
