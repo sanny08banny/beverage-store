@@ -1,53 +1,82 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   HeartIcon,
   ShoppingCartIcon,
 } from '@heroicons/react/24/outline'
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid'
-
-type Product = {
-  id: number
-  name: string
-  description: string
-  image: string
-  price: number
-  isFavorite: boolean
-}
+import { collection, getDocs } from 'firebase/firestore'
+import { firestore } from '@/lib/firebase'
+import Cart from '../components/Cart'
+import { Product } from '../components/types/product'
 
 const initialProducts: Product[] = [
   {
-    id: 1,
+    id: '1',
     name: 'Citrus Burst',
     description: 'A tangy, revitalizing citrus soda with a splash of lime.',
-    image: '/jaba_juice_hibiscus-removebg-preview.png',
     price: 3.99,
-    isFavorite: false,
+    volume: 500,
+    category: 'Soda',
+    imageUrl: '/jaba_juice_hibiscus-removebg-preview.png',
+    likes: 0,
   },
   {
-    id: 2,
+    id: '2',
     name: 'Berry Fizz',
     description: 'A sweet blend of wild berries and sparkling goodness.',
-    image: '/berry-fizz.jpg',
     price: 4.49,
-    isFavorite: false,
+    volume: 450,
+    category: 'Soda',
+    imageUrl: '/berry-fizz.jpg',
+    likes: 0,
   },
   {
-    id: 3,
+    id: '3',
     name: 'Mango Chill',
     description: 'Smooth mango fusion with a cool finish for summer days.',
-    image: '/mango-chill.jpg',
     price: 4.25,
-    isFavorite: false,
+    volume: 400,
+    category: 'Juice',
+    imageUrl: '/mango-chill.jpg',
+    likes: 0,
   },
 ]
 
 export default function Products() {
-  const [products, setProducts] = useState(initialProducts)
+  const [products, setProducts] = useState<Product[]>(initialProducts)
   const [cart, setCart] = useState<number[]>([])
   const [favorites, setFavorites] = useState<number[]>([])
+
+  // Fetch additional products from Firebase
+  useEffect(() => {
+    async function fetchFromFirebase() {
+      try {
+        const querySnapshot = await getDocs(collection(firestore, 'products'))
+        const firebaseProducts: Product[] = []
+        querySnapshot.forEach((doc) => {
+          const data = doc.data()
+          firebaseProducts.push({
+            id: doc.id,
+            name: data.name,
+            description: data.description,
+            price: data.price,
+            volume: data.volume,
+            category: data.category,
+            imageUrl: data.imageUrl,
+            likes: data.likes || 0,
+          })          
+        })
+        setProducts((prev) => [...prev, ...firebaseProducts])
+      } catch (error) {
+        console.error('Error fetching products:', error)
+      }
+    }
+
+    fetchFromFirebase()
+  }, [])
 
   const addToCart = (id: number) => {
     if (!cart.includes(id)) {
@@ -73,7 +102,10 @@ export default function Products() {
       <h2 className="text-4xl font-bold text-center mb-12 text-zinc-900 dark:text-zinc-100">
         Our Beverages
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+      <Cart cartItems={products.filter(p => cart.includes(p.id))} />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto mt-10">
         {products.map((product) => (
           <motion.div
             key={product.id}
@@ -82,7 +114,7 @@ export default function Products() {
             className="bg-white dark:bg-zinc-900 rounded-2xl shadow-md overflow-hidden relative group border border-zinc-200 dark:border-zinc-700"
           >
             <img
-              src={product.image}
+              src={product.imageUrl}
               alt={product.name}
               className="w-full h-60 object-cover"
             />
@@ -125,4 +157,5 @@ export default function Products() {
     </div>
   )
 }
+
 
