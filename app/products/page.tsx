@@ -47,8 +47,8 @@ const initialProducts: Product[] = [
 
 export default function Products() {
   const [products, setProducts] = useState<Product[]>(initialProducts)
-  const [cart, setCart] = useState<number[]>([])
-  const [favorites, setFavorites] = useState<number[]>([])
+  const [cart, setCart] = useState<string[]>([])
+  const [favorites, setFavorites] = useState<string[]>([])
 
   // Fetch additional products from Firebase
   useEffect(() => {
@@ -78,25 +78,26 @@ export default function Products() {
     fetchFromFirebase()
   }, [])
 
-  const addToCart = (id: number) => {
+  const addToCart = (id: string) => {
     if (!cart.includes(id)) {
       setCart([...cart, id])
     }
   }
-
-  const toggleFavorite = (id: number) => {
-    setProducts((prev) =>
-      prev.map((p) =>
+  
+  const toggleFavorite = (id: string) => {
+    setProducts(prev =>
+      prev.map(p =>
         p.id === id ? { ...p, isFavorite: !p.isFavorite } : p
       )
     )
+  
     if (favorites.includes(id)) {
-      setFavorites(favorites.filter((fid) => fid !== id))
+      setFavorites(favorites.filter(fid => fid !== id))
     } else {
       setFavorites([...favorites, id])
     }
   }
-
+  
   return (
     <div className="w-full px-6 py-12 bg-white dark:bg-black">
       <h2 className="text-4xl font-bold text-center mb-12 text-zinc-900 dark:text-zinc-100">
