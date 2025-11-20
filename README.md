@@ -13,9 +13,7 @@ This repository contains the full source code for the website, including UI comp
 
 A short video demonstrating the homepage, including the interactive 3D hero section, is available below.
 
-Replace the link with your own video file URL or GitHub-uploaded asset:
-
-https://example.com/video-demo.mp4
+https://github.com/user-attachments/assets/307ca13b-be79-43bf-937a-d965f2108470
 
 ---
 
