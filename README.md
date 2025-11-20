@@ -1,5 +1,60 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+# NatuRaw – Beverage E-Commerce Web App
+
+NatuRaw is a modern, high-performance e-commerce web application for natural beverages.  
+It is built using React with TypeScript, styled with TailwindCSS, and enhanced with Spline 3D interactions to create an immersive browsing experience.
+
+This repository contains the full source code for the website, including UI components, product browsing functionality, and the interactive 3D hero section featured on the homepage.
+
+---
+
+## Homepage Video Demo
+
+A short video demonstrating the homepage, including the interactive 3D hero section, is available below.
+
+Replace the link with your own video file URL or GitHub-uploaded asset:
+
+https://example.com/video-demo.mp4
+
+---
+
+## Features
+
+### E-Commerce Functionality
+- Product browsing and product listing pages.
+- Product detail sections (if implemented).
+- Smooth anchor-based section navigation.
+- Fully responsive layout for both mobile and desktop.
+
+### User Interface and Experience
+- TailwindCSS for fast and efficient styling.
+- Interactive 3D hero section built using Spline.
+- Clean, minimal, natural-inspired UI design.
+- Modern animations and scroll-based transitions.
+
+### Technical Highlights
+- React with TypeScript for scalable and maintainable code.
+- TailwindCSS for a utility-first styling approach.
+- Spline for 3D model integration and animation.
+- Reusable, component-based architecture.
+- Vite, CRA, or Next.js as the build system (update based on your actual setup).
+
+---
+
+## Tech Stack
+
+- React (TypeScript)
+- TailwindCSS
+- Spline
+- Vite / Create React App / Next.js (update if needed)
+- npm / yarn / pnpm
+
+---
+
+## Project Structure
+
+
 ## Getting Started
 
 First, run the development server:
