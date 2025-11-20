@@ -36,7 +36,6 @@ https://github.com/user-attachments/assets/307ca13b-be79-43bf-937a-d965f2108470
 - TailwindCSS for a utility-first styling approach.
 - Spline for 3D model integration and animation.
 - Reusable, component-based architecture.
-- Vite, CRA, or Next.js as the build system (update based on your actual setup).
 
 ---
 
@@ -45,8 +44,8 @@ https://github.com/user-attachments/assets/307ca13b-be79-43bf-937a-d965f2108470
 - React (TypeScript)
 - TailwindCSS
 - Spline
-- Vite / Create React App / Next.js (update if needed)
-- npm / yarn / pnpm
+- Vite / Create React App / Next.js 
+- npm
 
 ---
 
